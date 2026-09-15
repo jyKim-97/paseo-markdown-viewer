@@ -1,0 +1,17 @@
+#!/bin/sh
+# Ask the Paseo markdown panel to show a file. Run from inside a Paseo agent (PASEO_AGENT_ID is set),
+# or pass an agent id as the second argument.
+#   bin/open-markdown docs/plan.md
+#   bin/open-markdown /absolute/path/notes.md <agent-id>
+set -eu
+file="${1:?usage: open-markdown <path> [agent-id]}"
+agent="${2:-${PASEO_AGENT_ID:?PASEO_AGENT_ID not set; pass an agent id}}"
+inbox="$HOME/.paseo/plugin-data/paseo-markdown-viewer/inbox"
+mkdir -p "$inbox"
+stamp="$(date +%s)-$$"
+# Escape backslashes and double quotes for JSON; paths rarely contain either.
+escape() { printf '%s' "$1" | sed -e 's/\\/\\\\/g' -e 's/"/\\"/g'; }
+tmp="$inbox/.$stamp.tmp"
+printf '{"agentId":"%s","path":"%s"}\n' "$(escape "$agent")" "$(escape "$file")" > "$tmp"
+mv "$tmp" "$inbox/$stamp.json"
+echo "requested: $file"
