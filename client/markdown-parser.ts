@@ -159,7 +159,8 @@ const isParagraphContinuation = (line: string) =>
   !patterns.mathBlock.test(line) &&
   !patterns.rule.test(line) &&
   !patterns.quote.test(line) &&
-  !patterns.listItem.test(line);
+  !patterns.listItem.test(line) &&
+  !patterns.tableRow.test(line);
 
 function takeWhile<T>(items: T[], predicate: (item: T, index: number) => boolean): T[] {
   const stop = items.findIndex((item, index) => !predicate(item, index));
