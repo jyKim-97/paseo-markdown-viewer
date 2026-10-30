@@ -3,9 +3,11 @@ import { startFollowingAgents } from "./server/follow-agents";
 import { awaitMarkdownChangeHandler, readMarkdownFileHandler } from "./server/markdown-file";
 import { startOpenInbox } from "./server/open-inbox";
 import { capturePaseo, capturing } from "./server/paseo-handle";
+import { renderFormula } from "./server/render";
 import { revealMarkdownFileHandler } from "./server/reveal";
 import { followSettings } from "./shared/follow-settings";
 import { awaitMarkdownChange, pluginPing, readMarkdownFile, revealMarkdownFile } from "./shared/markdown-file";
+import { renderMath } from "./shared/render";
 
 export default function contribute(server: PluginServerContext) {
   server.registerSettings(followSettings);
@@ -14,6 +16,7 @@ export default function contribute(server: PluginServerContext) {
   server.handle(awaitMarkdownChange, capturing(awaitMarkdownChangeHandler));
   server.handle(revealMarkdownFile, capturing(revealMarkdownFileHandler));
   server.handle(pluginPing, capturing(() => ({ ok: true as const })));
+  server.handle(renderMath, renderFormula);
 
   const following = startFollowingAgents();
   const stopInbox = startOpenInbox();

@@ -11,6 +11,10 @@
   "scripts": {
     "typecheck": "tsc --noEmit"
   },
+  "dependencies": {
+    "@resvg/resvg-wasm": "2.6.2",
+    "mathjax-full": "3.2.2"
+  },
   "devDependencies": {
     "@getpaseo/client": "0.8.0",
     "@getpaseo/plugin": "0.8.0",

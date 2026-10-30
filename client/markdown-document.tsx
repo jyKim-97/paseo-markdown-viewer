@@ -48,7 +48,7 @@ export function MarkdownDocument({
         {file.error ? (
           <Text style={styles.error}>{describeError(file.error)}</Text>
         ) : file.data ? (
-          <MarkdownView blocks={blocks} theme={theme} compact={compact} />
+          <MarkdownView blocks={blocks} theme={theme} compact={compact} hostId={path} />
         ) : (
           <Text style={styles.muted}>Loading…</Text>
         )}

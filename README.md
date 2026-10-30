@@ -6,11 +6,25 @@ the files your agents write.
 
 Requires **Paseo 0.8 or newer**.
 
+## Fork changes
+
+This is a personal fork of [opsb/paseo-markdown-viewer](https://github.com/opsb/paseo-markdown-viewer).
+It adds math rendering: `$...$` / `\(...\)` for inline formulas and `$$...$$` / `\[...\]` for
+display blocks, rendered as rasterized PNGs (via MathJax + resvg) so they work on every platform
+the viewer supports. The rendering code is copied unmodified from
+[q5m-ai/paseo-math](https://github.com/q5m-ai/paseo-math); see `NOTICE`.
+
+Install this fork instead of upstream:
+
+```sh
+paseo plugin install git:jyKim-97/paseo-markdown-viewer
+```
+
 ## What it does
 
 - **Tabbed viewer.** Each file has its own tab. Headings, lists, task boxes, tables, fenced code,
-  block quotes, links, Obsidian wikilinks and YAML frontmatter all render with React Native
-  primitives, so the panel works on desktop, in the browser and on phones, in every Paseo theme.
+  block quotes, links, Obsidian wikilinks, YAML frontmatter, and LaTeX math all render with React
+  Native primitives, so the panel works on desktop, in the browser and on phones, in every Paseo theme.
 - **Live updates.** The daemon watches each open file with the operating system's file events and
   the panel re-reads within milliseconds of a save, including atomic saves that rename a temporary
   file over the original.

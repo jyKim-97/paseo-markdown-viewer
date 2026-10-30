@@ -1,0 +1,13 @@
+paseo-markdown-viewer
+Copyright 2025 opsb; fork changes Copyright 2026 jyKim-97.
+
+Math rendering (shared/render.ts, shared/tex.ts, server/render.ts,
+server/generated/wasm.ts, client/render-cache.ts, client/formula-scale.ts,
+client/formula.tsx) is copied unmodified from q5m-ai/paseo-math:
+https://github.com/q5m-ai/paseo-math
+Copyright 2026 q5m-ai contributors, Apache License, Version 2.0.
+
+paseo-math's own NOTICE records that its math parser draws on the public
+Paseo LaTeX proposal (github.com/getpaseo/paseo/pull/2562), and that it
+embeds MathJax (Apache-2.0) and an unmodified resvg WASM binary (MPL-2.0,
+https://github.com/thx/resvg-js). Those attributions carry over unchanged.
