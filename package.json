@@ -16,9 +16,9 @@
     "mathjax-full": "3.2.2"
   },
   "devDependencies": {
-    "@getpaseo/client": "0.8.0",
-    "@getpaseo/plugin": "0.8.0",
-    "@getpaseo/protocol": "0.8.0",
+    "@getpaseo/client": "0.13.0",
+    "@getpaseo/plugin": "0.13.0",
+    "@getpaseo/protocol": "0.13.0",
     "@tanstack/react-query": "^5.90.11",
     "@types/node": "^24.0.0",
     "@types/react": "~19.2.0",
